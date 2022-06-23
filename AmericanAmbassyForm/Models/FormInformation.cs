@@ -24,12 +24,12 @@ namespace AmericanAmbassyForm.Models
         public string Surname { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        [DataType(DataType.Date)]
-        public DateTime DOB { get; set; }
+        //[DataType(DataType.Date)]
+        public string DOB { get; set; }
 
 
         [Display(Name = "Age")]
-        public int Age { get; set; }
+        public string Age { get; set; }
 
 
         [Display(Name = "Email")]
