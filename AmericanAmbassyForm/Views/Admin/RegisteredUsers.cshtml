@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AmericanAmbassyForm.Areas.Identity.Data
+
+
+@inject SignInManager<AmericanAmbassyFormUser> SignInManager
+@inject UserManager<AmericanAmbassyFormUser> UserManager
+
+
+
+@{
+    ViewData["Title"] = "Registered Users";
+    string[] TableHeaders = new string[]
+    {
+                "First Name",
+                "Last Name",
+                "User Name",
+                "Email",
+                "Phone Number"
+                
+
+    };
+  
+}
+
+<h4><a href="~/Admin/Index">See Form Details.</a></h4>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>hello, @UserManager.GetUserName(User)</h1>
+    }
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <h1>Display Data</h1>
+    <br />
+    <br />
+    <table class="DataTable">
+        <thead>
+            <tr>
+                @{
+                    foreach (var head in TableHeaders)
+                    {
+                        <th>
+                            @head
+                        </th>
+
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <th>@Data.FirstName</th>
+                            <th>@Data.LastName</th>
+                            <th>@Data.UserName</th>
+                            <th>@Data.Email</th>
+                            <th>@Data.PhoneNumber</th>
+                            
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+    }
+
+

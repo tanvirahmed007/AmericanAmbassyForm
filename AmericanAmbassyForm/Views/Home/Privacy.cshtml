@@ -9,62 +9,12 @@
 
 @{
     ViewData["Title"] = "Privacy Policy";
-    string[] TableHeaders = new string[]
-    {
-                "Id",
-                "Name",
-                "Age",
-                "DOB",
-                "Email",
-                "Phone",
-                "Surname"
-
-    };
+    
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
 
-@if (SignInManager.IsSignedIn(User))
-{
 
-    <h1>Display Data</h1>
-    <br />
-    <br />
-    <table class="DataTable">
-        <thead>
-            <tr>
-                @{
-                    foreach (var head in TableHeaders)
-                    {
-                        <th>
-                            @head
-                        </th>
-
-                    }
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                if (Model != null)
-                {
-                    foreach (var Data in Model)
-                    {
-                        <tr>
-                            <th>@Data.Id</th>
-                            <th>@Data.Name</th>
-                            <th>@Data.Age</th>
-                            <th>@Data.DOB</th>
-                            <th>@Data.Email</th>
-                            <th>@Data.Phone</th>
-                            <th>@Data.Surname</th>
-                        </tr>
-                    }
-                }
-            }
-        </tbody>
-    </table>
-    }
 
 
